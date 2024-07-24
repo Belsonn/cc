@@ -192,7 +192,7 @@ var setCcVersion = (v) => {
 };
 
 var cypressPkg = require2("cypress/package.json");
-var pkg = require2("@krivega/cc/package.json");
+var pkg = require2("@belsonn/cc/package.json");
 initCapture();
 setCypressVersion(cypressPkg.version);
 setCcVersion(pkg.version);
@@ -408,7 +408,7 @@ var bootCypress = async (params) => {
   try {
     const f = import_fs.default.readFileSync(tempFilePath, "utf-8");
     if (!f) {
-      throw new Error("Is @krivega/cc/plugin installed?");
+      throw new Error("Is @belsonn/cc/plugin installed?");
     }
     debug5("cypress config '%s': '%s'", tempFilePath, f);
     return JSON.parse(f);
@@ -417,7 +417,7 @@ var bootCypress = async (params) => {
     info(bold("Cypress stdout:\n"), stdout2);
     info(bold("Cypress stderr:\n"), stderr);
     throw new ValidationError(`Unable to resolve cypress configuration
-- make sure that '@krivega/cc/plugin' is installed
+- make sure that '@belsonn/cc/plugin' is installed
 - report the issue together with cypress stdout and stderr
 `);
   }
@@ -739,7 +739,7 @@ async function getClient() {
       "x-cypress-request-attempt": config["axios-retry"]?.retryCount ?? 0,
       "x-cypress-version": _cypressVersion ?? "0.0.0",
       "x-ccy-version": ccyVerson,
-      "User-Agent": `@krivega/cc/${ccyVerson}`
+      "User-Agent": `@belsonn/cc/${ccyVerson}`
     };
     if (_runId) {
       headers["x-cypress-run-id"] = _runId;
@@ -1449,7 +1449,7 @@ var SpecAfterResult = class _SpecAfterResult {
   static getDummyTestAttemptError(attemptState) {
     return (0, import_ts_pattern4.match)(attemptState).with("failed", () => ({
       name: "Error",
-      message: "[@krivega/cc] Could not get cypress attempt error details",
+      message: "[@belsonn/cc] Could not get cypress attempt error details",
       stack: "",
       codeFrame: null
     })).with("skipped", () => ({
@@ -3193,7 +3193,7 @@ async function run(params = {}) {
     config,
     browser: validatedParams.browser
   });
-  info(`@krivega/cc version: ${dim(_ccVersion)}`);
+  info(`@belsonn/cc version: ${dim(_ccVersion)}`);
   info(`Cypress version: ${dim(_cypressVersion)}`);
   info("Discovered %d spec files", specs.length);
   info(
