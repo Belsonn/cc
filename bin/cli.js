@@ -725,7 +725,6 @@ function getCypressRunAPIParams(params) {
         "projectId",
         "key",
         "recordKey",
-        "record",
         "group",
         "parallel",
         "tag",
@@ -737,7 +736,6 @@ function getCypressRunAPIParams(params) {
       ]),
       Boolean
     ),
-    record: false,
     env: {
       ...params.env,
       cc_debug_enabled: shouldEnablePluginDebug(params.cloudDebug)
@@ -1798,7 +1796,6 @@ function runBareCypress(params = {}) {
     ciBuildId: void 0,
     tag: void 0,
     parallel: void 0,
-    record: false,
     group: void 0,
     spec: import_lodash8.default.flatten(params.spec).join(",")
   };
@@ -3519,12 +3516,7 @@ ${getLegalNotice()}
 ).option(
   "-P, --project <project-path>",
   "path to your Cypress project root location - defaults to the current working directory"
-).option("-q, --quiet", "suppress verbose output from Cypress").addOption(
-  new import_extra_typings.Option(
-    "--record [bool]",
-    "records the run and sends test results, screenshots and videos to Cc"
-  ).default(true).argParser((i) => i === "false" ? false : true)
-).option(
+).option("-q, --quiet", "suppress verbose output from Cypress").option(
   "-r, --reporter <reporter>",
   'use a specific mocha reporter for Cypress, pass a path to use a custom reporter, defaults to "spec"'
 ).option(

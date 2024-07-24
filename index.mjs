@@ -618,7 +618,6 @@ function getCypressRunAPIParams(params) {
         "projectId",
         "key",
         "recordKey",
-        "record",
         "group",
         "parallel",
         "tag",
@@ -630,7 +629,6 @@ function getCypressRunAPIParams(params) {
       ]),
       Boolean
     ),
-    record: false,
     env: {
       ...params.env,
       cc_debug_enabled: shouldEnablePluginDebug(params.cloudDebug)
@@ -1677,7 +1675,6 @@ function runBareCypress(params = {}) {
     ciBuildId: void 0,
     tag: void 0,
     parallel: void 0,
-    record: false,
     group: void 0,
     spec: _8.flatten(params.spec).join(",")
   };
