@@ -1,11 +1,10 @@
 {
-  "name": "@krivega/cc",
-  "version": "4.0.0",
+  "name": "@belsonn/cc",
+  "version": "4.0.1",
   "main": "./index.js",
   "author": {
-    "name": "Krivega Dmitriy",
-    "email": "mr.krivega@gmail.com",
-    "url": "https://krivega.com"
+    "name": "Mateusz Belka",
+    "email": "mateusz.belka14@gmail.com"
   },
   "license": "GPL-3.0-or-later",
   "engines": {
